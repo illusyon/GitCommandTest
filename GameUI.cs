@@ -42,13 +42,13 @@ public class GameUI
         if (!_windowEntries.TryGetValue(windowName, out windowEntry))
             windowEntry = _windowEntries[windowName] = new WindowEntry() { name = windowName, sceneEntry = sceneEntry };
 
-        return windowEntry;
+        Debug.Log("Test-Register");
     }
 
     private GameUI()
     {
         createLayerRoot("GUI").depth = 30;
-        createLayerRoot("GUIOverlay").depth = 60;
+        createLayerRoot("GUIOverlay").depth = 58;
 
         Comanager.Start(updatePopupQueue());
     }
@@ -143,7 +143,7 @@ public class GameUI
         var window = getWindow(windowName);
 
         return window ? window.visible : false;
-    }
+ 
 
     IEnumerator doLoadWindow(string windowName, AfterLoad afterLoad, OnLoadError onLoadError = null)
     {
